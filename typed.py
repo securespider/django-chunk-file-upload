@@ -115,6 +115,26 @@ class BaseFile:
             ".3gpp2",
         ),
         TypeChoices.XML: ("xml",),
+        TypeChoices.CAD: (
+            "stp",
+            "step",
+            ".dxf",
+            ".dwg",
+            ".dgn",
+            ".rvt",
+            ".ifc",
+            ".stl",
+            ".obj",
+            ".fbx",
+            ".3ds",
+            ".skp",
+            ".blend",
+            ".bim",
+            ".bimx",
+            ".ifczip",
+            ".ifcxml",
+            ".ifcjson",
+        ),
     }
     _accepted_mime_types: list = field(default_factory=lambda: [".*/*"])
     _id: UUID = None
@@ -500,3 +520,15 @@ class XMLFile(File):
     @property
     def type(self) -> TypeChoices:
         return TypeChoices.XML
+
+@dataclass(kw_only=True)
+class CADFile(File):
+    """CAD File"""
+
+    _accepted_mime_types: list = field(
+        default_factory=lambda: [r"application/octet\-stream"]
+    )
+
+    @property
+    def type(self) -> TypeChoices:
+        return TypeChoices.CAD

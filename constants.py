@@ -21,6 +21,7 @@ class TypeChoices(TextChoices):
     TEXT = "TEXT", _("TEXT")
     VIDEO = "VIDEO", _("VIDEO")
     XML = "XML", _("XML")
+    CAD = "CAD", _("CAD")
     __empty__ = _("Unknown")
 
 
